@@ -1,0 +1,181 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|d:\\poc\\progressgateway\\progressgateway.api\\hubs\\progresshub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|solutionrelative:hubs\\progresshub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|d:\\poc\\progressgateway\\progressgateway.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|d:\\poc\\progressgateway\\progressgateway.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|d:\\poc\\progressgateway\\progressgateway.api\\controllers\\progresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|solutionrelative:controllers\\progresscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|d:\\poc\\progressgateway\\progressgateway.api\\services\\progressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|solutionrelative:services\\progressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|d:\\poc\\progressgateway\\progressgateway.api\\services\\iprogressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|solutionrelative:services\\iprogressservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|d:\\poc\\progressgateway\\progressgateway.api\\models\\progresscompletedrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|solutionrelative:models\\progresscompletedrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|d:\\poc\\progressgateway\\progressgateway.api\\models\\progressupdaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|solutionrelative:models\\progressupdaterequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|d:\\poc\\progressgateway\\progressgateway.api\\models\\progressupdateresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|solutionrelative:models\\progressupdateresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|d:\\poc\\progressgateway\\progressgateway.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{22FF394A-93A4-4D1F-AB1A-5AEFC171E4C8}|ProgressGateway.Api.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProgressCompletedRequest.cs",
+              "DocumentMoniker": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Models\\ProgressCompletedRequest.cs",
+              "RelativeDocumentMoniker": "Models\\ProgressCompletedRequest.cs",
+              "ToolTip": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Models\\ProgressCompletedRequest.cs",
+              "RelativeToolTip": "Models\\ProgressCompletedRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T20:50:21.325Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProgressController.cs",
+              "DocumentMoniker": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Controllers\\ProgressController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProgressController.cs",
+              "ToolTip": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Controllers\\ProgressController.cs",
+              "RelativeToolTip": "Controllers\\ProgressController.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAgwGcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T19:44:29.772Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProgressService.cs",
+              "DocumentMoniker": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Services\\ProgressService.cs",
+              "RelativeDocumentMoniker": "Services\\ProgressService.cs",
+              "ToolTip": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Services\\ProgressService.cs",
+              "RelativeToolTip": "Services\\ProgressService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T19:43:21.389Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IProgressService.cs",
+              "DocumentMoniker": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Services\\IProgressService.cs",
+              "RelativeDocumentMoniker": "Services\\IProgressService.cs",
+              "ToolTip": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Services\\IProgressService.cs",
+              "RelativeToolTip": "Services\\IProgressService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T19:42:59.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProgressHub.cs",
+              "DocumentMoniker": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Hubs\\ProgressHub.cs",
+              "RelativeDocumentMoniker": "Hubs\\ProgressHub.cs",
+              "ToolTip": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Hubs\\ProgressHub.cs",
+              "RelativeToolTip": "Hubs\\ProgressHub.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABwAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T19:41:29.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ProgressUpdateResponse.cs",
+              "DocumentMoniker": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Models\\ProgressUpdateResponse.cs",
+              "RelativeDocumentMoniker": "Models\\ProgressUpdateResponse.cs",
+              "ToolTip": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Models\\ProgressUpdateResponse.cs",
+              "RelativeToolTip": "Models\\ProgressUpdateResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T19:40:44.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProgressUpdateRequest.cs",
+              "DocumentMoniker": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Models\\ProgressUpdateRequest.cs",
+              "RelativeDocumentMoniker": "Models\\ProgressUpdateRequest.cs",
+              "ToolTip": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Models\\ProgressUpdateRequest.cs",
+              "RelativeToolTip": "Models\\ProgressUpdateRequest.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAqwDAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T19:39:48.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Dockerfile",
+              "RelativeDocumentMoniker": "Dockerfile",
+              "ToolTip": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Dockerfile",
+              "RelativeToolTip": "Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-08-18T19:02:06.914Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAIwCYAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-18T18:52:13.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\POC\\ProgressGateway\\ProgressGateway.API\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-18T18:40:29.622Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

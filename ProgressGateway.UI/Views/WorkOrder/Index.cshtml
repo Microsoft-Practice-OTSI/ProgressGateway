@@ -1,0 +1,647 @@
+﻿@{
+    ViewData["Title"] = "Work Order";
+}
+
+<style>
+
+    .progress-page {
+        max-width: 800px;
+        margin-top: 30px;
+    }
+
+    #progressSection {
+        display: none;
+    }
+
+    .progress-container {
+        margin-top: 25px;
+    }
+
+    .progress-bar-container {
+        width: 100%;
+        height: 28px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid #ced4da;
+    }
+
+    .progress-bar-inner {
+        width: 0%;
+        height: 100%;
+        background-color: #0d6efd;
+        transition: width 0.4s ease;
+        color: white;
+        text-align: center;
+        line-height: 28px;
+        font-weight: bold;
+    }
+
+        .progress-bar-inner.failed {
+            background-color: #dc3545;
+        }
+
+    .progress-message {
+        margin-top: 12px;
+        min-height: 25px;
+    }
+
+    .step-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 25px;
+    }
+
+    .step-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px;
+        margin-bottom: 8px;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+    }
+
+    .step-left {
+        display: flex;
+        align-items: center;
+    }
+
+    .step-icon {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: #adb5bd;
+        margin-right: 12px;
+    }
+
+    .pending .step-icon {
+        background: #adb5bd;
+    }
+
+    .inprogress .step-icon {
+        background: #0d6efd;
+    }
+
+    .completed .step-icon {
+        background: #198754;
+    }
+
+    .failed .step-icon {
+        background: #dc3545;
+    }
+
+</style>
+
+
+<div class="progress-page">
+
+    <h1>Work Order</h1>
+
+    <p>
+        Click Start to begin the work order creation process.
+    </p>
+
+    <hr />
+
+    <button id="btnStart"
+            type="button"
+            class="btn btn-primary">
+
+        Start Work Order
+
+    </button>
+
+
+    <div id="progressSection">
+
+        <div class="progress-container">
+
+            <div class="progress-bar-container">
+
+                <div id="progressBar"
+                     class="progress-bar-inner">
+
+                    0%
+
+                </div>
+
+            </div>
+
+
+            <div id="progressMessage"
+                 class="progress-message">
+
+                Waiting to start...
+
+            </div>
+
+
+            <ul class="step-list">
+
+                <li id="step-PreValidation"
+                    class="step-item pending">
+
+                    <div class="step-left">
+
+                        <span class="step-icon"></span>
+
+                        <span>
+                            Pre Validation
+                        </span>
+
+                    </div>
+
+                    <span class="step-status">
+                        Pending
+                    </span>
+
+                </li>
+
+
+                <li id="step-CreateWorkOrder"
+                    class="step-item pending">
+
+                    <div class="step-left">
+
+                        <span class="step-icon"></span>
+
+                        <span>
+                            Create Work Order
+                        </span>
+
+                    </div>
+
+                    <span class="step-status">
+                        Pending
+                    </span>
+
+                </li>
+
+
+                <li id="step-CreateDocuments"
+                    class="step-item pending">
+
+                    <div class="step-left">
+
+                        <span class="step-icon"></span>
+
+                        <span>
+                            Create Documents
+                        </span>
+
+                    </div>
+
+                    <span class="step-status">
+                        Pending
+                    </span>
+
+                </li>
+
+
+                <li id="step-CreateConfirmations"
+                    class="step-item pending">
+
+                    <div class="step-left">
+
+                        <span class="step-icon"></span>
+
+                        <span>
+                            Create Confirmations
+                        </span>
+
+                    </div>
+
+                    <span class="step-status">
+                        Pending
+                    </span>
+
+                </li>
+
+
+                <li id="step-GenerateInvoice"
+                    class="step-item pending">
+
+                    <div class="step-left">
+
+                        <span class="step-icon"></span>
+
+                        <span>
+                            Generate Invoice
+                        </span>
+
+                    </div>
+
+                    <span class="step-status">
+                        Pending
+                    </span>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+
+    <script>
+
+        let connection = null;
+
+
+        document
+            .getElementById("btnStart")
+            .addEventListener(
+                "click",
+                async function () {
+
+                    const button =
+                        document.getElementById("btnStart");
+
+                    button.disabled = true;
+
+
+                    // Show progress only after Start.
+
+                    document
+                        .getElementById("progressSection")
+                        .style.display = "block";
+
+
+                    resetProgress();
+
+
+                    const executionId =
+                        crypto.randomUUID();
+
+
+                    console.log(
+                        "Execution ID:",
+                        executionId
+                    );
+
+
+                    try {
+
+                        await connectSignalR(
+                            executionId
+                        );
+
+
+                        const response =
+                            await fetch(
+                                "/WorkOrder/Start",
+                                {
+                                    method: "POST",
+
+                                    headers: {
+                                        "Content-Type":
+                                            "application/json"
+                                    },
+
+                                    body:
+                                        JSON.stringify({
+                                            executionId:
+                                                executionId
+                                        })
+                                }
+                            );
+
+
+                        if (!response.ok) {
+
+                            throw new Error(
+                                "Unable to start work order."
+                            );
+
+                        }
+
+
+                        const result =
+                            await response.json();
+
+
+                        console.log(
+                            "Work Order Start Response:",
+                            result
+                        );
+
+
+                        if (!result.success) {
+
+                            throw new Error(
+                                result.message
+                            );
+
+                        }
+
+                    }
+                    catch (error) {
+
+                        console.error(
+                            error
+                        );
+
+
+                        document
+                            .getElementById("progressMessage")
+                            .innerText =
+                            "Error starting work order: "
+                            + error.message;
+
+
+                        button.disabled = false;
+
+                    }
+
+                }
+            );
+
+
+        async function connectSignalR(
+            executionId
+        ) {
+
+            if (connection) {
+
+                await connection.stop();
+
+            }
+
+
+            connection =
+                new signalR.HubConnectionBuilder()
+
+                    .withUrl(
+                        window.progressGatewayConfig.apiBaseUrl
+                        + "/progressHub"
+                    )
+
+                    .withAutomaticReconnect()
+
+                    .build();
+
+
+            connection.on(
+                "ReceiveProgressUpdate",
+                function (data) {
+
+                    console.log(
+                        "Progress:",
+                        data
+                    );
+
+                    updateProgressUI(data);
+
+                }
+            );
+
+
+            connection.on(
+                "ProgressCompleted",
+                function (data) {
+
+                    document
+                        .getElementById("progressMessage")
+                        .innerText =
+                        data.message ||
+                        "Work order completed.";
+
+                    document
+                        .getElementById("btnStart")
+                        .disabled = false;
+
+                }
+            );
+
+
+            await connection.start();
+
+
+            console.log(
+                "SignalR Connected."
+            );
+
+
+            await connection.invoke(
+                "JoinExecutionGroup",
+                executionId
+            );
+
+
+            console.log(
+                "Joined Group:",
+                executionId
+            );
+
+        }
+
+
+        function updateProgressUI(data) {
+
+            const progressBar =
+                document.getElementById(
+                    "progressBar"
+                );
+
+
+            progressBar.style.width =
+                data.percentage + "%";
+
+
+            progressBar.innerText =
+                data.percentage + "%";
+
+
+            if (data.message) {
+
+                document
+                    .getElementById(
+                        "progressMessage"
+                    )
+                    .innerText =
+                    data.message;
+
+            }
+
+
+            const stepElement =
+                document.getElementById(
+                    "step-" + data.step
+                );
+
+
+            if (!stepElement) {
+
+                console.warn(
+                    "Step not found:",
+                    data.step
+                );
+
+                return;
+
+            }
+
+
+            stepElement.classList.remove(
+                "pending",
+                "inprogress",
+                "completed",
+                "failed"
+            );
+
+
+            let cssClass =
+                "pending";
+
+            let statusText =
+                "Pending";
+
+
+            switch (data.status) {
+
+                case "InProgress":
+
+                    cssClass =
+                        "inprogress";
+
+                    statusText =
+                        "In Progress";
+
+                    break;
+
+
+                case "Completed":
+
+                    cssClass =
+                        "completed";
+
+                    statusText =
+                        "Completed";
+
+                    break;
+
+
+                case "Failed":
+
+                    cssClass =
+                        "failed";
+
+                    statusText =
+                        "Failed";
+
+                    progressBar.classList.add(
+                        "failed"
+                    );
+
+                    document
+                        .getElementById("btnStart")
+                        .disabled = false;
+
+                    break;
+
+            }
+
+
+            stepElement.classList.add(
+                cssClass
+            );
+
+
+            stepElement
+                .querySelector(".step-status")
+                .innerText =
+                statusText;
+
+
+            if (
+                data.percentage === 100 &&
+                data.status === "Completed"
+            ) {
+
+                document
+                    .getElementById("btnStart")
+                    .disabled = false;
+
+            }
+
+        }
+
+
+        function resetProgress() {
+
+            const progressBar =
+                document.getElementById(
+                    "progressBar"
+                );
+
+
+            progressBar.style.width = "0%";
+
+            progressBar.innerText = "0%";
+
+
+            progressBar.classList.remove(
+                "failed"
+            );
+
+
+            document
+                .getElementById("progressMessage")
+                .innerText =
+                "Starting work order process...";
+
+
+            const steps = [
+
+                "PreValidation",
+                "CreateWorkOrder",
+                "CreateDocuments",
+                "CreateConfirmations",
+                "GenerateInvoice"
+
+            ];
+
+
+            steps.forEach(
+                function (step) {
+
+                    const element =
+                        document.getElementById(
+                            "step-" + step
+                        );
+
+
+                    element.classList.remove(
+                        "inprogress",
+                        "completed",
+                        "failed"
+                    );
+
+
+                    element.classList.add(
+                        "pending"
+                    );
+
+
+                    element
+                        .querySelector(
+                            ".step-status"
+                        )
+                        .innerText =
+                        "Pending";
+
+                }
+            );
+
+        }
+
+    </script>
+}

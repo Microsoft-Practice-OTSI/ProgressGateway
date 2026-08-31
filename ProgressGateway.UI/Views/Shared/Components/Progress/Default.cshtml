@@ -1,0 +1,80 @@
+﻿@model ProgressGateway.UI.Models.Progress.ProgressViewModel
+
+<div class="progress-gateway-container"
+     id="progressGatewayContainer">
+
+    <!-- Header -->
+    <div class="progress-header">
+
+        <h5 id="progressTitle">
+            @Model.Title
+        </h5>
+
+        <span id="progressPercentage"
+              class="progress-percentage">
+            @Model.Percentage%
+        </span>
+
+    </div>
+
+
+    <!-- Progress Bar -->
+    <div class="progress-bar-container">
+
+        <div id="progressBar"
+             class="progress-bar-fill"
+             style="width: @Model.Percentage%">
+        </div>
+
+    </div>
+
+
+    <!-- Current Message -->
+    <div class="progress-message-container">
+
+        <div class="progress-message-label">
+            Current Status
+        </div>
+
+        <div id="progressMessage"
+             class="progress-message">
+
+            @Model.Message
+
+        </div>
+
+    </div>
+
+
+    <!-- Steps -->
+    <div class="progress-steps-container">
+
+        <h6>Process Steps</h6>
+
+        <div id="progressSteps">
+
+            @foreach (var step in Model.Steps)
+            {
+                <div id="step-@step.StepName"
+                     class="progress-step pending">
+
+                    <div class="step-icon">
+                        ○
+                    </div>
+
+                    <div class="step-label">
+                        @step.DisplayName
+                    </div>
+
+                    <div class="step-status">
+                        Pending
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+</div>

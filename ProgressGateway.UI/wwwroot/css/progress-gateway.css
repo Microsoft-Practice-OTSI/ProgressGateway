@@ -1,0 +1,189 @@
+﻿/* ==========================================
+   MAIN PROGRESS CONTAINER
+   ========================================== */
+
+.progress-gateway-container {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 25px;
+    padding: 20px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+    .progress-header h5 {
+        margin: 0;
+    }
+
+.progress-percentage {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+/* ==========================================
+   PROGRESS BAR
+   ========================================== */
+
+.progress-bar-container {
+    width: 100%;
+    height: 24px;
+    background-color: #e9ecef;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background-color: #0d6efd;
+    transition: width 0.4s ease-in-out;
+}
+
+
+    /* Completed Progress */
+
+    .progress-bar-fill.completed {
+        background-color: #198754;
+    }
+
+
+    /* Failed Progress */
+
+    .progress-bar-fill.failed {
+        background-color: #dc3545;
+    }
+
+
+/* ==========================================
+   CURRENT MESSAGE
+   ========================================== */
+
+.progress-message-container {
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.progress-message-label {
+    font-size: 12px;
+    color: #6c757d;
+    margin-bottom: 3px;
+}
+
+.progress-message {
+    font-weight: 500;
+}
+
+
+/* ==========================================
+   PROCESS STEPS
+   ========================================== */
+
+.progress-steps-container {
+    margin-top: 20px;
+}
+
+    .progress-steps-container h6 {
+        margin-bottom: 15px;
+    }
+
+
+.progress-step {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+
+/* Step Icon */
+
+.step-icon {
+    width: 30px;
+    font-size: 20px;
+}
+
+
+/* Step Label */
+
+.step-label {
+    flex-grow: 1;
+    font-weight: 500;
+}
+
+
+/* Step Status */
+
+.step-status {
+    font-size: 13px;
+    color: #6c757d;
+}
+
+
+/* ==========================================
+   PENDING
+   ========================================== */
+
+.progress-step.pending {
+    background-color: #ffffff;
+}
+
+
+/* ==========================================
+   IN PROGRESS
+   ========================================== */
+
+.progress-step.in-progress {
+    border-left: 5px solid #0d6efd;
+    background-color: #f0f6ff;
+}
+
+    .progress-step.in-progress .step-icon {
+        color: #0d6efd;
+    }
+
+
+/* ==========================================
+   COMPLETED
+   ========================================== */
+
+.progress-step.completed {
+    border-left: 5px solid #198754;
+    background-color: #f0fff4;
+}
+
+    .progress-step.completed .step-icon {
+        color: #198754;
+    }
+
+
+/* ==========================================
+   FAILED
+   ========================================== */
+
+.progress-step.failed {
+    border-left: 5px solid #dc3545;
+    background-color: #fff5f5;
+}
+
+    .progress-step.failed .step-icon {
+        color: #dc3545;
+    }

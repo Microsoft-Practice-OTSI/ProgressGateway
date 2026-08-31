@@ -1,0 +1,143 @@
+﻿@{
+    ViewData["Title"] = "Progress Gateway";
+}
+
+<div class="text-center mb-4">
+
+    <h1>Progress Gateway</h1>
+
+    <p class="text-muted">
+        Select a process to monitor real-time progress.
+    </p>
+
+</div>
+
+
+<div class="row">
+
+    <!-- Work Order -->
+
+    <div class="col-md-3 mb-4">
+
+        <div class="card h-100">
+
+            <div class="card-body">
+
+                <h4 class="card-title">
+                    Work Order
+                </h4>
+
+                <p class="card-text">
+                    Create and monitor a work order.
+                </p>
+
+                <a asp-controller="WorkOrder"
+                   asp-action="Index"
+                   class="btn btn-primary">
+
+                    Open
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Employee Onboarding -->
+
+  
+
+    <!-- File Processing -->
+
+    <div class="col-md-3 mb-4">
+
+        <div class="card h-100">
+
+            <div class="card-body">
+
+                <h4 class="card-title">
+                    File Processing
+                </h4>
+
+                <p class="card-text">
+                    Monitor file upload and processing.
+                </p>
+
+                <a asp-controller="FileProcessing"
+                   asp-action="Index"
+                   class="btn btn-warning">
+
+                    Open
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Report Generation -->
+
+    <div class="col-md-3 mb-4">
+
+        <div class="card h-100">
+
+            <div class="card-body">
+
+                <h4 class="card-title">
+                    Report Generation
+                </h4>
+
+                <p class="card-text">
+                    Monitor report generation.
+                </p>
+
+                <a asp-controller="ReportGeneration"
+                   asp-action="Index"
+                   class="btn btn-info">
+
+                    Open
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-3 mb-4">
+
+        <div class="card h-100">
+
+            <div class="card-body">
+
+                <h4 class="card-title">
+                    Employee Onboarding
+                </h4>
+
+                <p class="card-text">
+                    Monitor employee onboarding progress.
+                </p>
+
+                <a asp-controller="EmployeeOnboarding"
+                   asp-action="Index"
+                   class="btn btn-success">
+
+                    Open
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

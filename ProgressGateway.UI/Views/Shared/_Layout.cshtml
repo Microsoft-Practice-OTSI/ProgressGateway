@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
+
+    <title>
+        @ViewData["Title"] - ProgressGateway.UI
+    </title>
+
+
+    <!-- ============================================
+         BOOTSTRAP CSS
+         ============================================ -->
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+
+
+    <!-- ============================================
+         APPLICATION CSS
+         ============================================ -->
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+</head>
+
+
+<body>
+
+    <!-- ============================================
+         NAVIGATION BAR
+         ============================================ -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <div class="container">
+
+            <!-- Application Name -->
+
+            <a class="navbar-brand"
+               asp-controller="Home"
+               asp-action="Index">
+
+                Progress Gateway
+
+            </a>
+
+
+            <!-- Mobile Toggle Button -->
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent"
+                    aria-controls="navbarContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+            <!-- Navigation Items -->
+
+            <div class="collapse navbar-collapse"
+                 id="navbarContent">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <!-- Home -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           asp-controller="Home"
+                           asp-action="Index">
+
+                            Home
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- Work Order -->
+
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           asp-controller="WorkOrder"
+                           asp-action="Index">
+
+                            Work Order
+
+                        </a>
+
+                    </li>
+
+
+                    <!-- Employee Onboarding
+                    <li class="nav-item">
+
+                        <a class="nav-link"
+                           asp-controller="Employee"
+                           asp-action="Index">
+
+                            Employee Onboarding
+
+                        </a>
+
+                    </li>
+                    -->
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ============================================
+         MAIN PAGE CONTENT
+         ============================================ -->
+
+    <main role="main"
+          class="container mt-4">
+
+        @RenderBody()
+
+    </main>
+
+
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+@* 
+    <footer class="border-top footer text-muted mt-5">
+
+        <div class="container">
+
+            &copy; @DateTime.Now.Year - ProgressGateway.UI
+
+        </div>
+
+    </footer> *@
+
+
+
+    <!-- ============================================
+         JQUERY
+         ============================================ -->
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+
+
+
+    <!-- ============================================
+         BOOTSTRAP JAVASCRIPT
+         ============================================ -->
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+
+
+    <!-- ============================================
+         MICROSOFT SIGNALR CLIENT
+
+         Based on your project structure:
+
+         wwwroot
+           └── lib
+               └── microsoft
+                   └── signalr
+                       └── dist
+                           └── browser
+                               └── signalr.js
+         ============================================ -->
+
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+
+
+
+    <!-- ============================================
+         PROGRESS GATEWAY CONFIGURATION
+
+         Reads API Base URL from appsettings.json
+         ============================================ -->
+
+    <partial name="_ProgressGatewayConfig" />
+
+
+
+    <!-- ============================================
+         GENERIC PROGRESS GATEWAY CLIENT
+         ============================================ -->
+
+    <script src="~/js/progress-gateway.js"
+            asp-append-version="true"></script>
+
+
+
+    <!-- ============================================
+         PAGE-SPECIFIC JAVASCRIPT
+         ============================================ -->
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+</body>
+
+</html>

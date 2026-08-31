@@ -1,0 +1,341 @@
+﻿@{
+    ViewData["Title"] = "Employee Onboarding";
+}
+
+<div class="progress-page">
+
+    <h1>Employee Onboarding</h1>
+
+    <p>
+        Click Start to begin the employee onboarding process.
+    </p>
+
+    <hr />
+
+    <button id="btnStart"
+            type="button"
+            class="btn btn-success">
+
+        Start Employee Onboarding
+
+    </button>
+
+
+    <div id="progressSection"
+         style="display:none; margin-top:25px;">
+
+        <div class="progress"
+             style="height:28px;">
+
+            <div id="progressBar"
+                 class="progress-bar"
+                 style="width:0%">
+
+                0%
+
+            </div>
+
+        </div>
+
+
+        <div id="progressMessage"
+             style="margin-top:12px;">
+
+            Waiting to start...
+
+        </div>
+
+
+        <ul class="list-group mt-4">
+
+            <li id="step-CreateEmployee"
+                class="list-group-item">
+
+                Create Employee
+
+                <span class="step-status float-end">
+                    Pending
+                </span>
+
+            </li>
+
+
+            <li id="step-CreateAccount"
+                class="list-group-item">
+
+                Create Account
+
+                <span class="step-status float-end">
+                    Pending
+                </span>
+
+            </li>
+
+
+            <li id="step-AssignEquipment"
+                class="list-group-item">
+
+                Assign Equipment
+
+                <span class="step-status float-end">
+                    Pending
+                </span>
+
+            </li>
+
+
+            <li id="step-SendWelcomeEmail"
+                class="list-group-item">
+
+                Send Welcome Email
+
+                <span class="step-status float-end">
+                    Pending
+                </span>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+
+    <script>
+
+        let connection = null;
+
+
+        document
+            .getElementById("btnStart")
+            .addEventListener(
+                "click",
+                async function () {
+
+                    const button =
+                        document.getElementById("btnStart");
+
+                    button.disabled = true;
+
+
+                    document
+                        .getElementById("progressSection")
+                        .style.display = "block";
+
+
+                    resetProgress();
+
+
+                    const executionId =
+                        crypto.randomUUID();
+
+
+                    try {
+
+                        await connectSignalR(
+                            executionId
+                        );
+
+
+                        const response =
+                            await fetch(
+                                "/EmployeeOnboarding/Start",
+                                {
+                                    method: "POST",
+
+                                    headers: {
+                                        "Content-Type":
+                                            "application/json"
+                                    },
+
+                                    body:
+                                        JSON.stringify({
+                                            executionId:
+                                                executionId
+                                        })
+                                }
+                            );
+
+
+                        const result =
+                            await response.json();
+
+
+                        if (!result.success) {
+
+                            throw new Error(
+                                result.message
+                            );
+
+                        }
+
+                    }
+                    catch (error) {
+
+                        document
+                            .getElementById("progressMessage")
+                            .innerText =
+                            error.message;
+
+
+                        button.disabled = false;
+
+                    }
+
+                }
+            );
+
+
+        async function connectSignalR(executionId) {
+
+            if (connection) {
+
+                await connection.stop();
+
+            }
+
+
+            connection =
+                new signalR.HubConnectionBuilder()
+
+                    .withUrl(
+                        window.progressGatewayConfig.apiBaseUrl
+                        + "/progressHub"
+                    )
+
+                    .withAutomaticReconnect()
+
+                    .build();
+
+
+            connection.on(
+                "ReceiveProgressUpdate",
+                function (data) {
+
+                    updateProgress(data);
+
+                }
+            );
+
+
+            await connection.start();
+
+
+            await connection.invoke(
+                "JoinExecutionGroup",
+                executionId
+            );
+
+        }
+
+
+        function updateProgress(data) {
+
+            const progressBar =
+                document.getElementById(
+                    "progressBar"
+                );
+
+
+            progressBar.style.width =
+                data.percentage + "%";
+
+
+            progressBar.innerText =
+                data.percentage + "%";
+
+
+            document
+                .getElementById("progressMessage")
+                .innerText =
+                data.message;
+
+
+            const step =
+                document.getElementById(
+                    "step-" + data.step
+                );
+
+
+            if (!step) {
+                return;
+            }
+
+
+            const status =
+                step.querySelector(
+                    ".step-status"
+                );
+
+
+            status.innerText =
+                data.status;
+
+
+            if (
+                data.percentage === 100 &&
+                data.status === "Completed"
+            ) {
+
+                document
+                    .getElementById("btnStart")
+                    .disabled = false;
+
+            }
+
+        }
+
+
+        function resetProgress() {
+
+            document
+                .getElementById("progressBar")
+                .style.width = "0%";
+
+
+            document
+                .getElementById("progressBar")
+                .innerText = "0%";
+
+
+            document
+                .getElementById("progressMessage")
+                .innerText =
+                "Starting employee onboarding...";
+
+
+            const steps = [
+
+                "CreateEmployee",
+                "CreateAccount",
+                "AssignEquipment",
+                "SendWelcomeEmail"
+
+            ];
+
+
+            steps.forEach(
+                function (stepName) {
+
+                    document
+                        .getElementById(
+                            "step-" + stepName
+                        )
+                        .querySelector(
+                            ".step-status"
+                        )
+                        .innerText =
+                        "Pending";
+
+                }
+            );
+
+        }
+
+    </script>
+}

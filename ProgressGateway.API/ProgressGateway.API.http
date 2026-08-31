@@ -1,0 +1,6 @@
+@ProgressGateway.API_HostAddress = http://localhost:5199
+
+GET {{ProgressGateway.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

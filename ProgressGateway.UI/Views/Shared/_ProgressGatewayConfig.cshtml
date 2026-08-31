@@ -1,0 +1,7 @@
+﻿@inject IConfiguration Configuration
+
+<script>
+    window.progressGatewayConfig = {
+        apiBaseUrl: '@Configuration["ProgressGateway:ApiBaseUrl"]'
+    };
+</script>

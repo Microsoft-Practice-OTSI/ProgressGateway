@@ -1,0 +1,34 @@
+[
+  {
+    "ContainingType": "ProgressGateway.Api.Controllers.ProgressController",
+    "Method": "Complete",
+    "RelativePath": "api/Progress/complete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ProgressGateway.Api.Models.ProgressCompletedRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProgressGateway.Api.Controllers.ProgressController",
+    "Method": "Update",
+    "RelativePath": "api/Progress/update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ProgressGateway.Api.Models.ProgressUpdateRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
